@@ -1,15 +1,16 @@
 package com.example.sample_project;
 
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-public class SampleProjectApplicationTests {
+import org.springframework.boot.test.context.SpringBootTest;
 
-    @Test
-    public void openBrowserTest() {
-        WebDriver driver = new ChromeDriver();
-        driver.get("http://localhost:8080");
-        driver.quit();
-    }
+
+
+@SpringBootTest
+class SampleProjectApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
 }
