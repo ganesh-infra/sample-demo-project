@@ -10,20 +10,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class WelcomeController {
 
-    @GetMapping("/")
-    public String home() {
-        return "Sample Project is UP";
-    }
+    // Redirect root "/" to index.html
+	 @GetMapping("/")
+	    public String home() {
+	        return "redirect:/index.html"; // redirects to static HTML in resources/static
+	    }
 
+    // For simple text responses
     @GetMapping("/health")
+    @ResponseBody
     public String health() {
         return "OK";
     }
 
     @GetMapping("/api/health")
+    @ResponseBody
     public String apiHealth() {
         return "Application is running";
     }
