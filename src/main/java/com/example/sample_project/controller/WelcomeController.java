@@ -6,23 +6,24 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class WelcomeController {
 
-    private static final Logger log = LoggerFactory.getLogger(WelcomeController.class);
-
-    // UI redirect
-    @GetMapping("/health")
-    public String redirectToUI() {
-        log.info("Redirecting to UI");
-        return "redirect:/";
+    @GetMapping("/")
+    public String home() {
+        return "Sample Project is UP";
     }
 
-    // Optional pure health API (for Jenkins / Docker)
+    @GetMapping("/health")
+    public String health() {
+        return "OK";
+    }
+
     @GetMapping("/api/health")
-    @ResponseBody
     public String apiHealth() {
         return "Application is running";
     }
